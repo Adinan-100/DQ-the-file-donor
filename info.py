@@ -44,7 +44,7 @@ NO_RESULTS_MSG = bool(environ.get("NO_RESULTS_MSG", False))
 # MongoDB information
 DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://DQFILE:DQFILE@cluster0.tc65s41.mongodb.net/?retryWrites=true&w=majority")
 DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster0")
-COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Mflix_files')
+COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
 # Others
 IS_VERIFY = is_enabled((environ.get('IS_VERIFY', 'False')), False)
