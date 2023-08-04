@@ -42,7 +42,7 @@ SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(
 NO_RESULTS_MSG = bool(environ.get("NO_RESULTS_MSG", False))
 
 # MongoDB information
-DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://SPIDEY:SPIDEY@cluster0.7gea387.mongodb.net/?retryWrites=true&w=majority")
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://DQFILE:DQFILE@cluster0.tc65s41.mongodb.net/?retryWrites=true&w=majority")
 DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster0")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Mflix_files')
 
