@@ -10,14 +10,14 @@ COPY requirements.txt /requirements.txt
 # Removed this line because it does not serve any purpose
 # RUN /
 
-RUN pip3 install -U cd pip && pip3 install -U -r requirements.txt
+RUN pip3 install --upgrade pip && pip3 install -r requirements.txt
 RUN mkdir /DQ-The-File-Donor
 WORKDIR /DQ-The-File-Donor
 
 COPY . .
 
-# Expose port 80 for TCP trafficEX
-POSE 80
+# Expose port 80 for TCP traffic
+# Fixed typo "POSE" to "EXPOSE"
+EXPOSE 80
 
 CMD ["python", "bot.py"]
-
