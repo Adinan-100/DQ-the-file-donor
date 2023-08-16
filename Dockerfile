@@ -16,4 +16,7 @@ COPY . .
 
 EXPOSE 80
 
+ applicationHEALTHCHECK --interval=30s --timeout=5s CMD curl -f http://localhost:80/ || exit 1
+
 CMD ["python", "bot.py"]
+
