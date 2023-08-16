@@ -29,7 +29,7 @@ COPY . .
 EXPOSE 80
 
 # Installing curl
-RUN apt-get install curl -y
+RUN apt-get update && apt-get install -y curl  # Fixed command order and added missing 'update' command
 
 # Healthcheck to test if the app is running
 HEALTHCHECK --interval=5s CMD curl -f http://localhost:80/ || exit 1
