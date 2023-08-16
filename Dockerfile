@@ -14,8 +14,10 @@ WORKDIR /DQ_The_File_Donor
 
 COPY . .
 
-EXPOSE 80#
+EXPOSE 80
 
 RUN apt-get install curl -y
+
+HEALTHCHECK --interval=5s CMD curl -f http://localhost:80/ || exit 1
 
 CMD sleep 10 && python bot.py
