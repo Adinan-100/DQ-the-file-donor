@@ -31,7 +31,10 @@ EXPOSE 80
 RUN apt-get install -y curl  # Removed the unnecessary 'update' command since it was already run before
 
 # Healthcheck to test if the app is running
-HEALTHCHECK --interval=5s CMD curl -f http://localhost:80/ || exit 1
+# The app was not turning healthy after several checks because the healthcheck was attempting to access
+# the application before it started. Adding a sleep command before the healthcheck allows enough time for
+# the application to start before the healthcheck is executed.
+HEALTHCHECK --interval=5s CMD sleep 10 && curl -f http://localhost:80/ || exit 1
 
 # Delaying the execution of the Python script to allow time for the application to start
-CMD sleep 10 && python bot.py
+CMD python bot.py
