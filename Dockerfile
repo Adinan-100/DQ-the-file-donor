@@ -1,4 +1,3 @@
-
 # The original Dockerfile did not contain the proper instructions to install curl, which is needed for the HEALTHCHECK.
 # I added the necessary command to install curl before the HEALTHCHECK instruction.
 
@@ -29,7 +28,7 @@ COPY . .
 EXPOSE 80
 
 # Installing curl
-RUN apt-get update && apt-get install -y curl  # Fixed command order and added missing 'update' command
+RUN apt-get install -y curl  # Removed the unnecessary 'update' command since it was already run before
 
 # Healthcheck to test if the app is running
 HEALTHCHECK --interval=5s CMD curl -f http://localhost:80/ || exit 1
