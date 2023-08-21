@@ -1,23 +1,12 @@
-FROM python:3.8-slim-buster
+FROM python:3.10.8-slim-buster
 
-RUN apt-get update && apt-get upgrade -y
-
-RUN apt-get install git -y
-
+RUN apt update && apt upgrade -y
+RUN apt install git -y
 COPY requirements.txt /requirements.txt
 
-RUN pip install -r requirements.txt
-
-RUN mkdir /DQ_The_File_Donor
-
-WORKDIR /DQ_The_File_Donor
-
-COPY . .
-
-EXPOSE 80
-
-RUN apt-get install -y curl
-
-CMD sleep 15 && python bot.py
-
-HEALTHCHECK --interval=5s CMD curl -f http://localhost:80/ || exit 1
+RUN cd /
+RUN pip3 install -U pip && pip3 install -U -r requirements.txt
+RUN mkdir /DQTheFileDonor
+WORKDIR /DQTheFileDonor
+COPY start.sh /start.sh
+CMD ["/bin/bash", "/start.sh"]
